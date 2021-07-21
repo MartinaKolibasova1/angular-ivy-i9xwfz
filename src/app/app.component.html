@@ -1,0 +1,22 @@
+<div class="first" *ngFor="let name of getFirstOnes()">
+  <div class="inside1 sticky" [id]="name[0]">
+    {{ name[0] | uppercase}}
+  </div>
+  <div *ngFor="let n of getNames(name); let first = first">
+    <div class="inside">
+      {{n}}
+    </div>
+  </div>
+</div>
+
+<div class="scroll" id="scroller">
+  <span
+    *ngFor="let letter of ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']"
+    [id]="'scroll'+letter"
+    (click)="scrollIntoView1(letter)"
+    (ontouchstart)="scrollIntoView1(letter)"
+    [ngClass]="{'big': isTopInTheScreen('scroll'+letter)}"
+  >
+    {{letter | uppercase}}
+  </span>
+</div>
